@@ -7,7 +7,7 @@ A sample application to explore methods for retrieving user information in UI5 a
 This project demonstrates two approaches to obtain user information:
 
 1. **[sap.ushell.services.UserInfo](https://sapui5.hana.ondemand.com/sdk/#/api/sap.ushell.services.UserInfo)** - Fiori Launchpad Shell service
-2. **@sap/approuter User API** - Approuter endpoints (`/currentUser` and `/attributes`)
+2. **[@sap/approuter User API](https://www.npmjs.com/package/@sap/approuter#user-api-service)** - Approuter endpoints (`/currentUser` and `/attributes`)
 
 ## Findings
 
