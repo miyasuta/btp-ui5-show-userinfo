@@ -1,0 +1,24 @@
+{
+  "generationParameters": {
+    "generationDate": "Tue Dec 23 2025 05:32:45 GMT+0900 (Japan Standard Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "None",
+    "metadataFilename": "",
+    "serviceUrl": "N/A",
+    "appName": "show-user-info",
+    "appTitle": "Show User Info",
+    "appDescription": "An SAP Fiori application.",
+    "appNamespace": "miyasuta",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.143.2",
+    "enableCodeAssist": false,
+    "enableEslint": false,
+    "enableTypeScript": true,
+    "showMockDataInfo": false,
+    "generatorVersion": "1.20.0",
+    "template": "Basic",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}

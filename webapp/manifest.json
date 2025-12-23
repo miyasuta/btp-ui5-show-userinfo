@@ -1,0 +1,116 @@
+{
+  "_version": "1.76.0",
+  "sap.app": {
+    "id": "miyasuta.showuserinfo",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.20.0",
+      "toolsId": "14b11a7c-60dd-40ae-9adc-9c95fca38657"
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "UserInfo-dispaly": {
+          "semanticObject": "UserInfo",
+          "action": "dispaly",
+          "title": "{{UserInfo-dispaly.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.143.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "miyasuta.showuserinfo.i18n.i18n"
+        }
+      },
+      "userApi": {}
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "miyasuta.showuserinfo.view",
+        "async": true,
+        "viewPath": "miyasuta.showuserinfo.view"
+      },
+      "routes": [
+        {
+          "name": "RouteUser",
+          "pattern": ":?query:",
+          "target": [
+            "TargetUser"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetUser": {
+          "id": "User",
+          "name": "User"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "miyasuta.showuserinfo.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "miyasutashowuserinfo"
+  }
+}

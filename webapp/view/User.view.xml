@@ -1,0 +1,70 @@
+<mvc:View controllerName="miyasuta.showuserinfo.controller.User"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+    >
+    <Page id="page" title="{i18n>title}">
+		<f:SimpleForm id="userInfoForm"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="UserInfo Retrieved from Ushell Service"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label id="_IDGenLabel1" text="ID" />
+				<Text id="idText" text="{userInfo>ID}" />
+				<Label id="_IDGenLabel2" text="First Name" />
+                <Text id="firstNameText" text="{userInfo>firstName}" />
+                <Label id="_IDGenLabel3" text="Last Name" />
+                <Text id="lastNameText" text="{userInfo>lastName}" />
+                <Label id="_IDGenLabel4" text="FullName" />
+                <Text id="fullNameText" text="{userInfo>fullName}" />
+                <Label id="_IDGenLabel5" text="Email" />
+                <Text id="emailText" text="{userInfo>email}" />
+			</f:content>
+		</f:SimpleForm>
+
+		<f:SimpleForm id="currentUserForm"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="UserInfo Retrieved from User API"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label id="_IDGenLabel12" text="First Name" />
+                <Text id="firstNameText12" text="{userApiInfo>firstname}" />
+                <Label id="_IDGenLabel13" text="Last Name" />
+                <Text id="lastNameText13" text="{userApiInfo>lastname}" />
+                <Label id="_IDGenLabel14" text="DisplayName" />
+                <Text id="fullNameText14" text="{userApiInfo>displayName}" />
+                <Label id="_IDGenLabel15" text="Email" />
+                <Text id="emailText15" text="{userApiInfo>email}" />
+                <Label id="_IDGenLabel16" text="Scopes" />
+                <Text id="emailText16" text="{userApiInfo>scopes}" />
+			</f:content>
+		</f:SimpleForm>        
+    </Page>
+</mvc:View>
