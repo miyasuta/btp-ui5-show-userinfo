@@ -11,10 +11,9 @@ export default class User extends Controller {
 
     /*eslint-disable @typescript-eslint/no-empty-function*/
     public onInit(): void {
-        // Doesn't work on BTP
         this.getUserInfo();
-
         this.getUserViaApi();
+        this.getUserAttributes();
     }
 
     private async getUserInfo(): Promise<void> {
@@ -44,6 +43,24 @@ export default class User extends Controller {
             this.setMockUserData();
         }        
 
+    }
+
+    private async getUserAttributes(): Promise<void> {
+        const url = this.getBaseURL() + "/user-api/attributes";
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                return;
+            }
+            const attributes = await response.json();
+            this.getView()?.setModel(new JSONModel(attributes), "userAttributes");
+            const attrForm = this.getView()?.byId("userAttributesForm") as SimpleForm;
+            attrForm.bindElement("userAttributes>/");
+        } catch (error) {
+            // Fallback for local testing
+            console.log("Failed to fetch user attributes:", error);
+        }
     }
 
     private setMockUserData(): void {

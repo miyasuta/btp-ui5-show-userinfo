@@ -2,6 +2,24 @@
   "xsappname": "miyasutashowuserinfo",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
-  "scopes": [],
-  "role-templates": []
+  "scopes": [{
+    "name": "$XSAPPNAME.User",
+    "description": "User scope"
+  }],
+  "attributes": [{
+    "name": "company",
+    "description": "Company",
+    "valueType": "string"
+  }],
+  "role-templates": [{
+    "name": "User",
+    "description": "User role",
+    "scope-references": [
+      "$XSAPPNAME.User"
+    ],
+    "attribute-references": [
+      "company"
+    ]
+  }],
+  "foreign-scope-references": ["user_attributes"]
 }

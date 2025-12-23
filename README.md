@@ -1,36 +1,74 @@
-## Application Details
-|               |
-| ------------- |
-|**Generation Date and Time**<br>Tue Dec 23 2025 05:32:45 GMT+0900 (Japan Standard Time)|
-|**App Generator**<br>SAP Fiori Application Generator|
-|**App Generator Version**<br>1.20.0|
-|**Generation Platform**<br>Visual Studio Code|
-|**Template Used**<br>Basic|
-|**Service Type**<br>None|
-|**Service URL**<br>N/A|
-|**Module Name**<br>show-user-info|
-|**Application Title**<br>Show User Info|
-|**Namespace**<br>miyasuta|
-|**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.143.2|
-|**Enable Code Assist Libraries**<br>False|
-|**Enable TypeScript**<br>True|
-|**Add Eslint configuration**<br>False|
+# Show User Info
 
-## show-user-info
+A sample application to explore methods for retrieving user information in UI5 applications deployed on SAP BTP.
 
-An SAP Fiori application.
+## Overview
 
-### Starting the generated app
+This project demonstrates two approaches to obtain user information:
 
--   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite.  To launch the generated application, run the following from the generated application root folder:
+1. **[sap.ushell.services.UserInfo](https://sapui5.hana.ondemand.com/sdk/#/api/sap.ushell.services.UserInfo)** - Fiori Launchpad Shell service
+2. **@sap/approuter User API** - Approuter endpoints (`/currentUser` and `/attributes`)
 
+## Findings
+
+### sap.ushell.services.UserInfo
+
+| Environment | Availability |
+|-------------|--------------|
+| Local development | Returns dummy values |
+| SAP Build Work Zone | ✅ Available |
+| HTML5 Application Repository (direct access) | ❌ Not available |
+
+**Available attributes:**
+
+```json
+{
+   "email": "john.doe@sap.com",
+   "firstName": "John",
+   "lastName": "Doe",
+   "fullName": "John Doe",
+   "ID": "john.doe@sap.com"
+}
 ```
-    npm start
+
+### User API
+
+| Environment | Availability |
+|-------------|--------------|
+| Local development | ❌ Not available (requires Approuter) |
+| SAP Build Work Zone | ✅ Available |
+| HTML5 Application Repository | ✅ Available |
+
+#### `/currentUser` Endpoint
+
+```json
+{
+   "firstname": "John",
+   "lastname": "Doe",
+   "email": "john.doe@sap.com",
+   "name": "john.doe@sap.com",
+   "displayName": "John Doe (john.doe@sap.com)",
+   "scopes": ["openid", "user_attributes", "uaa.user"]
+}
 ```
 
-#### Pre-requisites:
+#### `/attributes` Endpoint
 
-1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
+When authenticated via Identity Directory:
 
+```json
+{
+   "firstname": "John",
+   "lastname": "Doe",
+   "email": "john.doe@sap.com",
+   "name": "john.doe@sap.com",
+   "scopes": ["openid", "user_attributes", "uaa.user"],
+   "type": "public",
+   "user_uuid": "7bb399d6-9e92-4854-b118-23f2b1d96849"
+}
+```
 
+### Limitations
+
+- The `/attributes` endpoint cannot retrieve custom attributes beyond those listed above.
+- Reference: [KBA 3115516](https://me.sap.com/notes/3115516) - Cannot access custom attributes from IdP via sap-approuter-userapi service

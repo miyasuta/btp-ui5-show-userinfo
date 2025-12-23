@@ -39,7 +39,7 @@
 		<f:SimpleForm id="currentUserForm"
 			editable="false"
 			layout="ResponsiveGridLayout"
-			title="UserInfo Retrieved from User API"
+			title="UserInfo Retrieved from User API (/currentUser)"
 			labelSpanXL="3"
 			labelSpanL="3"
 			labelSpanM="3"
@@ -64,6 +64,41 @@
                 <Text id="emailText15" text="{userApiInfo>email}" />
                 <Label id="_IDGenLabel16" text="Scopes" />
                 <Text id="emailText16" text="{userApiInfo>scopes}" />
+			</f:content>
+		</f:SimpleForm>  
+
+		<f:SimpleForm id="userAttributesForm"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="UserInfo Retrieved from User API (/attributes)"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label id="_IDGenLabel22" text="First Name" />
+                <Text id="firstNameText22" text="{userAttributes>firstname}" />
+                <Label id="_IDGenLabel23" text="Last Name" />
+                <Text id="lastNameText23" text="{userAttributes>lastname}" />
+                <Label id="_IDGenLabel24" text="Name" />
+                <Text id="fullNameText24" text="{userAttributes>name}" />
+                <Label id="_IDGenLabel25" text="Email" />
+                <Text id="emailText25" text="{userAttributes>email}" />
+                <Label id="_IDGenLabel26" text="Scopes" />
+                <Text id="emailText26" text="{userAttributes>scopes}" />
+				<Label id="_IDGenLabel27" text="Type" />
+                <Text id="emailText27" text="{userAttributes>type}" />
+				<Label id="_IDGenLabel28" text="User UUID" />
+                <Text id="emailText28" text="{userAttributes>user_uuid}" />
 			</f:content>
 		</f:SimpleForm>        
     </Page>
