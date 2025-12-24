@@ -27,7 +27,7 @@ This project demonstrates two approaches to obtain user information:
    "firstName": "John",
    "lastName": "Doe",
    "fullName": "John Doe",
-   "ID": "john.doe@sap.com"
+   "ID": "" // Only available in S/4HANA Launchpad
 }
 ```
 
